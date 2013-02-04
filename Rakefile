@@ -41,7 +41,18 @@ end
 # TODO #1
 # make tests run by default
 # running 'rake' should run your tests
+task :default => [:test]
+
 
 # TODO #2
 # 1. add a method that you write to this rakefile
 # 2. write a rake task that uses the method and prints something using puts
+
+def halve a
+  p a[0, a.count/2]
+end
+
+task :halve do
+  d = [0, 1, 2, 3]
+  halve(d)
+end

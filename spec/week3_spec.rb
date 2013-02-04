@@ -44,14 +44,14 @@ describe 'Week3 method' do
   it '#halve does not modify input parameter' do
     input = [1,2,3,4]
     expected = [1,2,3,4]
-    subject.halve input
+    input.subject.halve input
     input.should eq expected
   end
 
   it '#halve! returns first half of an array' do
     input = [1,2,3,4]
     expected = [1,2]
-    actual = subject.halve input
+    actual = subject.halve! input
     actual.should eq expected
   end
 
@@ -97,9 +97,18 @@ describe 'Week3 method' do
     #
     # challenge: write the tests first
     #
-    it 'returns defaults when no parameter is provided'
+    it 'returns defaults when no parameter is provided'  do
+      expected = {  :path    => './',
+                    :version => '0.1.0',
+                    :mode => 'production',
+                                            }
+      actual = subject.configure
+      actual.should eq expected
+    end
 
-    it 'returns default value when :path is missing from parameter'
+    it 'returns default value when :path is missing from parameter' do
+
+    end
 
     it 'returns overridden value when :version is included in the parameter'
 
