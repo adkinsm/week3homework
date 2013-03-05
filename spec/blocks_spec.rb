@@ -7,7 +7,8 @@ describe 'Week3 block method' do
 
   # TODO: Write the spec and the code
   it '#run_me yields to a block' do
-    subject.name.should eq 'Brandon'
+    text = subject.run_me {|value| "Name = #{value}"}
+    text.should eq "Name = Brandon"
   end
 
   # TODO: Write the spec and the code
@@ -21,7 +22,7 @@ describe 'Week3 block method' do
   it '#each_odd iterates an array and yields the odd values to the block' do
     input = [1,2,3,4]
     expected = [1,3]
-    subject.each_odd input
+    subject.each_odd {|input| input%2 != 0}
     input.should eq expected
   end
 

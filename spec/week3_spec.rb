@@ -44,7 +44,7 @@ describe 'Week3 method' do
   it '#halve does not modify input parameter' do
     input = [1,2,3,4]
     expected = [1,2,3,4]
-    input.subject.halve input
+    subject.halve input
     input.should eq expected
   end
 
@@ -107,10 +107,16 @@ describe 'Week3 method' do
     end
 
     it 'returns default value when :path is missing from parameter' do
-
+      input = {  :version => '', :mode => ''}
+      actual = subject.configure input
+      actual[:path].should eq './'
     end
 
-    it 'returns overridden value when :version is included in the parameter'
+    it 'returns overridden value when :version is included in the parameter' do
+      input = {  :version => ''}
+      actual = subject.configure input
+      actual[:version].should eq ''
+    end
 
   end
 end

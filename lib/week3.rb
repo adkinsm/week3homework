@@ -21,13 +21,9 @@ class Week3
     input[0, input.count/2]
   end
 
-
-  def halve= input
-    input[0, input.count]
-  end
-
   def halve! input
-    input[0, input.count/2]
+    input.slice!(input.count/2, input.count)
+    input
   end
 
   def actual a
@@ -39,19 +35,19 @@ class Week3
     input %2 == 0 ? true : false
   end
 
-  def run
+  def run_me
     yield (@name)
   end
 
   def each_odd input
-    input.select {|input| input%2 != 0}
+    yield (input)
   end
 
-  def configure
-    {  :path => './',
-    :version => '0.1.0',
-    :mode => 'production',
-    }
+  def configure input_hash = {}
+    default = {  :path => './',
+                 :version => '0.1.0',
+                 :mode => 'production',}
+    default.merge(input_hash)
 
   end
 end
